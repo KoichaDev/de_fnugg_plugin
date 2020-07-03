@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const { registerBlockType } = wp.blocks;
 const { __ } = wp.i18n;
 const { RichText } = wp.editor;
@@ -24,46 +26,44 @@ registerBlockType("dekode/api-fnugg", {
     },
   },
   edit: ({ attributes, setAttributes, className }) => {
-    const [data, setData] = useState([]);
+    const [itemData, setItemData] = useState([]);
     const [query, setQuery] = useState("");
     const { search } = attributes;
 
-    const fetchAPI = async (url) => {
-      try {
-        const res = await fetch(url);
-        return await res.json();
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
     useEffect(() => {
-      fetchAPI(
-        `https://api.fnugg.no/search?q=${query}&sourceFields=name,description,lifts.count,lifts.open`
-      )
-        .then((res) => {
-          const dataHits = res.hits.hits;
-          const idData = [...dataHits].map((id) => id._id);
-
-          const [id] = idData;
-          console.log(dataHits);
-
-          fetchAPI(`https://api.fnugg.no/get/resort/${id}`)
-            .then((res) => {
-              setData(res._source);
-            })
-            .catch((err) => console.log(err));
-        })
-        .catch((err) => console.log(err));
+      const fetchItem = async () => {
+        const result = await axios(`https://api.fnugg.no/search?q=${query}`);
+        result.data.hits.hits.map((item) => setItemData(item._source));
+      }
+      fetchItem();
     }, [query]); // Use to filter query
 
     const onChangeQuery = (search) => {
       setQuery(search);
     };
 
+    const {
+      name,
+      images: { image_1_1_l, last_updated },
+    } = itemData;
+    
+    console.log(image_1_1_l, last_updated);
+    
     return (
       <div className={className}>
-        <RichText onChange={onChangeQuery} value={search} />
+        {
+        query !== '' ? ( 
+        <section class="card">
+          <h1>{name}</h1>
+          {/* <img src={data.images.image_1_1_l} alt={data.name} /> */}
+        </section>) : '' 
+        }
+       
+        <RichText
+          onChange={onChangeQuery}
+          value={search}
+          placeholder="Search an resort..."
+        />
       </div>
     );
   },
