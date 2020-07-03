@@ -1,9 +1,7 @@
-import axios from 'axios';
-
 const { registerBlockType } = wp.blocks;
 const { __ } = wp.i18n;
 const { RichText } = wp.editor;
-const {useState, useEffect} = wp.element;
+const { useState, useEffect } = wp.element;
 
 registerBlockType("dekode/api-fnugg", {
   title: __("Dekode API Fnugg", "dekode_theme"),
@@ -19,36 +17,58 @@ registerBlockType("dekode/api-fnugg", {
   },
   keywords: [__("dekode", "dekode_theme"), "fnugg", "dekode_theme"],
   attributes: {
-    content: {
+    search: {
       type: "string",
       source: "html",
-      selector: 'p'
+      selector: "p",
     },
   },
   edit: ({ attributes, setAttributes, className }) => {
     const [data, setData] = useState([]);
-    const { content } = attributes;
+    const [query, setQuery] = useState("");
+    const { search } = attributes;
 
-    const onChangeContent = (content) => {
-      useEffect(() => {
-        const fetchItem = async () => {
-          const result = await axios(`https://api.fnugg.no/search?q=${content}&sourceFields=name,description,lifts.count,lifts.open`);
-          setData(result);
-        }
-        fetchItem();
-      }, [content]);
-    }
+    const fetchAPI = async (url) => {
+      try {
+        const res = await fetch(url);
+        return await res.json();
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-    console.log(data);
+    useEffect(() => {
+      fetchAPI(
+        `https://api.fnugg.no/search?q=${query}&sourceFields=name,description,lifts.count,lifts.open`
+      )
+        .then((res) => {
+          const dataHits = res.hits.hits;
+          const idData = [...dataHits].map((id) => id._id);
+
+          const [id] = idData;
+          console.log(dataHits);
+
+          fetchAPI(`https://api.fnugg.no/get/resort/${id}`)
+            .then((res) => {
+              setData(res._source);
+            })
+            .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
+    }, [query]); // Use to filter query
+
+    const onChangeQuery = (search) => {
+      setQuery(search);
+    };
 
     return (
       <div className={className}>
-        <RichText onChange={onChangeContent} value={content}/>
+        <RichText onChange={onChangeQuery} value={search} />
       </div>
     );
   },
-  save: ({attributes}) => {
-       const { content } = attributes;
-       return <RichText.Content tagName="p" value={content} />;
+  save: ({ attributes }) => {
+    const { search } = attributes;
+    return <RichText.Content tagName="p" value={search} />;
   },
 });
