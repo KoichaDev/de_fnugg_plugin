@@ -1,4 +1,5 @@
-import axios from "axios";
+import ky from "ky";
+
 import "./index.css";
 
 const { registerBlockType } = wp.blocks;
@@ -27,14 +28,15 @@ registerBlockType("dekode/api-fnugg", {
     },
   },
   edit: ({ attributes, setAttributes, className }) => {
-    const [itemData, setItemData] = useState([]);
+    const [data, setData] = useState(null);
     const [query, setQuery] = useState("");
     const { search } = attributes;
 
     useEffect(() => {
       const fetchItem = async () => {
-        const result = await axios(`https://api.fnugg.no/search?q=${query}`);
-        result.data.hits.hits.map((item) => setItemData(item._source));
+        const { hits } = await ky.get(`https://api.fnugg.no/search?q=${query}`).json();
+        const items = hits.hits.map((item) => item._source);
+        setData(items);
       };
       fetchItem();
     }, [query]); // Use to filter query
@@ -43,15 +45,26 @@ registerBlockType("dekode/api-fnugg", {
       setQuery(search);
     };
 
-    const { name, last_updated } = itemData;
+    if (data === null) {
+      // if data is still it's initial value, then the API call hasn't resolved yet. Output something else for the user to look at
+      return <div>...Still loading!...</div>;
+    }
 
+    console.log("data loaded");
+    
     return (
       <div className={className}>
-        {itemData !== "" ? (
-          <section class={`${className}-card`}>
-            <h5 class={`${className}-card__title`}>{name}</h5>
+        {data.map(item => {
+          const {
+            name,
+            images: { image_1_1_l },
+            last_updated
+          } = item;
+          return (
+            <section class={`${className}-card`}>
+              <h5 class={`${className}-card__title`}>{name}</h5>
               <img
-                src="https://images.unsplash.com/photo-1593474799424-e6bd1554f956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1226&q=80"
+                src={image_1_1_l}
                 alt={name}
               />
               <div className={`${className}-card__overlay__sub__title`}>
@@ -59,34 +72,36 @@ registerBlockType("dekode/api-fnugg", {
                 <p>Oppdatert: {last_updated} </p>
               </div>
 
-            <div className={`${className}-card--grid`}>
-              <div class="cloud">
-                <img
-                  src="https://image.flaticon.com/icons/svg/899/899718.svg"
-                  alt="de_fnugg_cloudy"
-                />
-                <h5>Overskyet</h5>
-              </div>
-              <div class="degree">
-                <h1>10 °</h1>
-              </div>
-              <div class="wind">
-                <div className="wind__row__1">
-                  <img src="https://svgshare.com/i/Mb6.svg" alt="sidj" />
-                  <h3>2.5</h3>
-                  <h5>m/s</h5>
+              <div className={`${className}-card--grid`}>
+                <div class="cloud">
+                  <img
+                    src="https://image.flaticon.com/icons/svg/899/899718.svg"
+                    alt="de_fnugg_cloudy"
+                  />
+                  <h5>Overskyet</h5>
                 </div>
-                <p>Så og si Vindstille</p>
+                <div class="degree">
+                  <h1>10 °</h1>
+                </div>
+                <div class="wind">
+                  <div className="wind__row__1">
+                    <img src="https://svgshare.com/i/Mb6.svg" alt="sidj" />
+                    <h3>2.5</h3>
+                    <h5>m/s</h5>
+                  </div>
+                  <p>Så og si Vindstille</p>
+                </div>
+                <div class="description">
+                  <img src="https://i.ibb.co/9TZSzz0/road.png" alt="road" border="0" />
+                  <p>Deilig Vårsnø</p>
+                </div>
               </div>
-              <div class="description">
-                <img src="https://i.ibb.co/9TZSzz0/road.png" alt="road" border="0" />
-                <p>Deilig Vårsnø</p>
-              </div>
-            </div>
-          </section>
-        ) : (
-          ""
-        )}
+            </section>
+          );
+
+          
+
+        })}
 
         <RichText
           onChange={onChangeQuery}
