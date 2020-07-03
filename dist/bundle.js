@@ -2094,6 +2094,17 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./src/component/blocks/index.css":
+/*!****************************************!*\
+  !*** ./src/component/blocks/index.css ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./src/component/blocks/index.jsx":
 /*!****************************************!*\
   !*** ./src/component/blocks/index.jsx ***!
@@ -2105,6 +2116,8 @@ process.umask = function() { return 0; };
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.css */ "./src/component/blocks/index.css");
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_1__);
 var _this = undefined,
     _jsxFileName = "C:\\xampp\\htdocs\\dekode\\wp-content\\plugins\\de_fnugg_plugin\\src\\component\\blocks\\index.jsx";
 
@@ -2123,6 +2136,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 var registerBlockType = wp.blocks.registerBlockType;
@@ -2202,41 +2216,188 @@ registerBlockType("dekode/api-fnugg", {
     };
 
     var name = itemData.name,
-        _itemData$images = itemData.images,
-        image_1_1_l = _itemData$images.image_1_1_l,
-        last_updated = _itemData$images.last_updated;
-    console.log(image_1_1_l, last_updated);
+        last_updated = itemData.last_updated;
     return /*#__PURE__*/React.createElement("div", {
       className: className,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53,
+        lineNumber: 49,
         columnNumber: 7
       }
-    }, query !== '' ? /*#__PURE__*/React.createElement("section", {
-      class: "card",
+    }, itemData !== "" ? /*#__PURE__*/React.createElement("section", {
+      class: "".concat(className, "-card"),
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56,
-        columnNumber: 9
+        lineNumber: 51,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/React.createElement("h5", {
+      class: "".concat(className, "-card__title"),
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52,
+        columnNumber: 13
+      }
+    }, name), /*#__PURE__*/React.createElement("img", {
+      src: "https://images.unsplash.com/photo-1593474799424-e6bd1554f956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1226&q=80",
+      alt: name,
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 53,
+        columnNumber: 13
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "".concat(className, "-card__overlay__sub__title"),
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 57,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/React.createElement("h4", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58,
+        columnNumber: 15
+      }
+    }, "Dagens Forhold"), /*#__PURE__*/React.createElement("p", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 59,
+        columnNumber: 15
+      }
+    }, "Oppdatert: ", last_updated, " ")), /*#__PURE__*/React.createElement("div", {
+      className: "".concat(className, "-card--grid"),
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 61,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      class: "cloud",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 62,
+        columnNumber: 15
+      }
+    }, /*#__PURE__*/React.createElement("img", {
+      src: "https://image.flaticon.com/icons/svg/899/899718.svg",
+      alt: "de_fnugg_cloudy",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 63,
+        columnNumber: 17
+      }
+    }), /*#__PURE__*/React.createElement("h5", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 67,
+        columnNumber: 17
+      }
+    }, "Overskyet")), /*#__PURE__*/React.createElement("div", {
+      class: "degree",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 69,
+        columnNumber: 15
       }
     }, /*#__PURE__*/React.createElement("h1", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57,
-        columnNumber: 11
+        lineNumber: 70,
+        columnNumber: 17
       }
-    }, name)) : '', /*#__PURE__*/React.createElement(RichText, {
+    }, "10 \xB0")), /*#__PURE__*/React.createElement("div", {
+      class: "wind",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 72,
+        columnNumber: 15
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "wind__row__1",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 73,
+        columnNumber: 17
+      }
+    }, /*#__PURE__*/React.createElement("img", {
+      src: "https://svgshare.com/i/Mb6.svg",
+      alt: "sidj",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 74,
+        columnNumber: 19
+      }
+    }), /*#__PURE__*/React.createElement("h2", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 75,
+        columnNumber: 19
+      }
+    }, "2.5"), /*#__PURE__*/React.createElement("h5", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76,
+        columnNumber: 19
+      }
+    }, "m/s")), /*#__PURE__*/React.createElement("p", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 78,
+        columnNumber: 17
+      }
+    }, "S\xE5 og si Vindstille")), /*#__PURE__*/React.createElement("div", {
+      class: "description",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 80,
+        columnNumber: 15
+      }
+    }, /*#__PURE__*/React.createElement("img", {
+      src: "https://i.ibb.co/9TZSzz0/road.png",
+      alt: "road",
+      border: "0",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 81,
+        columnNumber: 17
+      }
+    }), /*#__PURE__*/React.createElement("p", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 82,
+        columnNumber: 17
+      }
+    }, "Deilig V\xE5rsn\xF8")))) : "", /*#__PURE__*/React.createElement(RichText, {
       onChange: onChangeQuery,
       value: search,
       placeholder: "Search an resort...",
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62,
+        lineNumber: 90,
         columnNumber: 9
       }
     }));
@@ -2250,7 +2411,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72,
+        lineNumber: 100,
         columnNumber: 12
       }
     });

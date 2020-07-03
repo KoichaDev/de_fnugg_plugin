@@ -17,6 +17,7 @@
   margin: 0 !important;
   color: #fffefe !important;
 }
+
 .wp-block-dekode-api-fnugg-card__overlay__sub__title > p {
   margin: 0 !important;
   color: #fffefe !important;
@@ -87,7 +88,7 @@
 }
 
 .wind > p {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 .description {
@@ -99,10 +100,12 @@
 }
 
 .description > img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .description > p {
-    margin: 8px !important;
+  margin: 8px !important;
 }
+
+/*# sourceMappingURL=bundle.css.map*/

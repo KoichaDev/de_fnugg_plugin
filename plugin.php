@@ -31,10 +31,18 @@ function gu_register_block_type($blockName, $options = array()) {
 
 function de_gutenberg_api_fnugg() {
 
+    // Register JavaScript Section
     wp_register_script(
         'gu-block-editor-script', 
         plugins_url('dist/bundle.js', __FILE__), 
         ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components']
+    );
+
+    // Register CSS Section
+    wp_register_style(
+        'gu-block-editor-style',
+         plugins_url('dist/bundle.css', __FILE__), 
+         array('wp-edit-blocks')
     );
 
     gu_register_block_type('api-fnugg');
