@@ -2248,7 +2248,7 @@ registerBlockType("dekode/api-fnugg", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 53,
-        columnNumber: 13
+        columnNumber: 15
       }
     }), /*#__PURE__*/React.createElement("div", {
       className: "".concat(className, "-card__overlay__sub__title"),
@@ -2256,28 +2256,28 @@ registerBlockType("dekode/api-fnugg", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 57,
-        columnNumber: 13
+        columnNumber: 15
       }
     }, /*#__PURE__*/React.createElement("h4", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 58,
-        columnNumber: 15
+        columnNumber: 17
       }
     }, "Dagens Forhold"), /*#__PURE__*/React.createElement("p", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 59,
-        columnNumber: 15
+        columnNumber: 17
       }
     }, "Oppdatert: ", last_updated, " ")), /*#__PURE__*/React.createElement("div", {
       className: "".concat(className, "-card--grid"),
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 61,
+        lineNumber: 62,
         columnNumber: 13
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -2285,7 +2285,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62,
+        lineNumber: 63,
         columnNumber: 15
       }
     }, /*#__PURE__*/React.createElement("img", {
@@ -2294,14 +2294,14 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63,
+        lineNumber: 64,
         columnNumber: 17
       }
     }), /*#__PURE__*/React.createElement("h5", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67,
+        lineNumber: 68,
         columnNumber: 17
       }
     }, "Overskyet")), /*#__PURE__*/React.createElement("div", {
@@ -2309,14 +2309,14 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69,
+        lineNumber: 70,
         columnNumber: 15
       }
     }, /*#__PURE__*/React.createElement("h1", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70,
+        lineNumber: 71,
         columnNumber: 17
       }
     }, "10 \xB0")), /*#__PURE__*/React.createElement("div", {
@@ -2324,7 +2324,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72,
+        lineNumber: 73,
         columnNumber: 15
       }
     }, /*#__PURE__*/React.createElement("div", {
@@ -2332,7 +2332,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73,
+        lineNumber: 74,
         columnNumber: 17
       }
     }, /*#__PURE__*/React.createElement("img", {
@@ -2341,28 +2341,28 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74,
+        lineNumber: 75,
         columnNumber: 19
       }
     }), /*#__PURE__*/React.createElement("h2", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75,
+        lineNumber: 76,
         columnNumber: 19
       }
     }, "2.5"), /*#__PURE__*/React.createElement("h5", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76,
+        lineNumber: 77,
         columnNumber: 19
       }
     }, "m/s")), /*#__PURE__*/React.createElement("p", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 79,
         columnNumber: 17
       }
     }, "S\xE5 og si Vindstille")), /*#__PURE__*/React.createElement("div", {
@@ -2370,7 +2370,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80,
+        lineNumber: 81,
         columnNumber: 15
       }
     }, /*#__PURE__*/React.createElement("img", {
@@ -2380,14 +2380,14 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81,
+        lineNumber: 82,
         columnNumber: 17
       }
     }), /*#__PURE__*/React.createElement("p", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82,
+        lineNumber: 83,
         columnNumber: 17
       }
     }, "Deilig V\xE5rsn\xF8")))) : "", /*#__PURE__*/React.createElement(RichText, {
@@ -2397,7 +2397,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90,
+        lineNumber: 91,
         columnNumber: 9
       }
     }));
@@ -2411,7 +2411,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100,
+        lineNumber: 101,
         columnNumber: 12
       }
     });

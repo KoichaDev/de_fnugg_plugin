@@ -50,14 +50,15 @@ registerBlockType("dekode/api-fnugg", {
         {itemData !== "" ? (
           <section class={`${className}-card`}>
             <h5 class={`${className}-card__title`}>{name}</h5>
-            <img
-              src="https://images.unsplash.com/photo-1593474799424-e6bd1554f956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1226&q=80"
-              alt={name}
-            />
-            <div className={`${className}-card__overlay__sub__title`}>
-              <h4>Dagens Forhold</h4>
-              <p>Oppdatert: {last_updated} </p>
-            </div>
+              <img
+                src="https://images.unsplash.com/photo-1593474799424-e6bd1554f956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1226&q=80"
+                alt={name}
+              />
+              <div className={`${className}-card__overlay__sub__title`}>
+                <h4>Dagens Forhold</h4>
+                <p>Oppdatert: {last_updated} </p>
+              </div>
+
             <div className={`${className}-card--grid`}>
               <div class="cloud">
                 <img
