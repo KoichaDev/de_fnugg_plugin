@@ -2344,7 +2344,7 @@ registerBlockType("dekode/api-fnugg", {
         lineNumber: 75,
         columnNumber: 19
       }
-    }), /*#__PURE__*/React.createElement("h2", {
+    }), /*#__PURE__*/React.createElement("h3", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,

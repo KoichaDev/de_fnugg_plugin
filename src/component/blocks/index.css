@@ -17,7 +17,7 @@
 
 .wp-block-dekode-api-fnugg-card__overlay__sub__title {
   position: absolute;
-  bottom: 48.3%;
+  bottom: 46%;
   width: 100%;
   background: rgba(32, 32, 32, 0.5) !important;
   text-align: center;
@@ -44,7 +44,7 @@
 
 .cloud {
   grid-area: cloud;
-  padding: 4rem 0;
+  padding: 2rem 0;
 }
 
 .cloud > img {
@@ -58,7 +58,6 @@
 
 .degree {
   grid-area: degree;
-  padding: 2rem 0;
 }
 
 .degree > h1 {
@@ -67,6 +66,7 @@
 
 .wind {
   grid-area: wind;
+  padding: 2rem 0;
 }
 
 .wind__row__1 {
@@ -82,18 +82,21 @@
 }
 
 .wind__row__1 > img {
+  margin-top: 10px;
   margin-left: 4rem;
   width: 50px;
   height: 50px;
 }
 
-.wind__row__1 > h2 {
+.wind__row__1 > h3 {
   margin: 0 !important;
-  margin-left: 2rem !important;
+  margin-left: 1rem !important;
+  font-weight: normal !important;
 }
 
 .wind__row__1 > h5 {
-  margin: 8px !important;
+  margin: 14px !important;
+  font-weight: normal !important;
 }
 
 .wind > p {
@@ -105,6 +108,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 1.5rem 0;
   padding: 1rem 0;
 }
 

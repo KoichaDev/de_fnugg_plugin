@@ -73,7 +73,7 @@ registerBlockType("dekode/api-fnugg", {
               <div class="wind">
                 <div className="wind__row__1">
                   <img src="https://svgshare.com/i/Mb6.svg" alt="sidj" />
-                  <h2>2.5</h2>
+                  <h3>2.5</h3>
                   <h5>m/s</h5>
                 </div>
                 <p>Så og si Vindstille</p>
