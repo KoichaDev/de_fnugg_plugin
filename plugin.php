@@ -8,7 +8,7 @@
  * Author URI: https://koicha.dev
  */
 
-// Avoid accessing this file directly
+// Checks whether the given constant exists and is defined & avoid accessing this file directly 
 if(!defined('ABSPATH')) {
     exit;
 }

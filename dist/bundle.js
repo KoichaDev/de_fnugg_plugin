@@ -660,6 +660,14 @@ __webpack_require__.r(__webpack_exports__);
 var _this = undefined,
     _jsxFileName = "C:\\xampp\\htdocs\\dekode\\wp-content\\plugins\\de_fnugg_plugin\\src\\component\\blocks\\index.jsx";
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -685,6 +693,183 @@ var _wp$element = wp.element,
     useState = _wp$element.useState,
     useEffect = _wp$element.useEffect;
 var Autocomplete = wp.components.Autocomplete;
+
+var ResortCard = function ResortCard(_ref) {
+  var _condition$symbol, _condition$temperatur, _condition$wind, _condition$wind2;
+
+  var className = _ref.className,
+      name = _ref.name,
+      condition = _ref.condition,
+      image = _ref.image,
+      last_updated = _ref.last_updated;
+  return /*#__PURE__*/React.createElement("section", {
+    class: "".concat(className, "-card"),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 3
+    }
+  }, /*#__PURE__*/React.createElement("h5", {
+    class: "".concat(className, "-card__title"),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 5
+    }
+  }, name), /*#__PURE__*/React.createElement("img", {
+    src: image,
+    alt: name,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 5
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "".concat(className, "-card__overlay__sub__title"),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/React.createElement("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 7
+    }
+  }, "Dagens Forhold"), /*#__PURE__*/React.createElement("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 7
+    }
+  }, "Oppdatert: ", last_updated, " ")), /*#__PURE__*/React.createElement("div", {
+    className: "".concat(className, "-card--grid"),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    class: "cloud",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "https://image.flaticon.com/icons/svg/899/899718.svg",
+    alt: "de_fnugg_cloudy",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 9
+    }
+  }), /*#__PURE__*/React.createElement("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 9
+    }
+  }, condition === null || condition === void 0 ? void 0 : (_condition$symbol = condition.symbol) === null || _condition$symbol === void 0 ? void 0 : _condition$symbol.name)), /*#__PURE__*/React.createElement("div", {
+    class: "degree",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/React.createElement("h1", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 9
+    }
+  }, condition === null || condition === void 0 ? void 0 : (_condition$temperatur = condition.temperature) === null || _condition$temperatur === void 0 ? void 0 : _condition$temperatur.value, " \xB0")), /*#__PURE__*/React.createElement("div", {
+    class: "wind",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wind__row__1",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "https://svgshare.com/i/Mb6.svg",
+    alt: "sidj",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/React.createElement("h3", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 11
+    }
+  }, condition === null || condition === void 0 ? void 0 : (_condition$wind = condition.wind) === null || _condition$wind === void 0 ? void 0 : _condition$wind.mps), /*#__PURE__*/React.createElement("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 11
+    }
+  }, "m/s")), /*#__PURE__*/React.createElement("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 9
+    }
+  }, condition === null || condition === void 0 ? void 0 : (_condition$wind2 = condition.wind) === null || _condition$wind2 === void 0 ? void 0 : _condition$wind2.speed)), /*#__PURE__*/React.createElement("div", {
+    class: "description",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "https://i.ibb.co/9TZSzz0/road.png",
+    alt: "road",
+    border: "0",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 9
+    }
+  }), /*#__PURE__*/React.createElement("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 9
+    }
+  }, condition === null || condition === void 0 ? void 0 : condition.description))));
+};
+
 registerBlockType("dekode/api-fnugg", {
   title: __("Dekode API Fnugg", "dekode_theme"),
   description: __("Based on the response from the API for the selected resort insert a block in the post content that presents the data fields displayed", "dekode_theme"),
@@ -694,33 +879,52 @@ registerBlockType("dekode/api-fnugg", {
     foreground: "#fff",
     src: "admin-network"
   },
-  keywords: [__("dekode", "dekode_theme"), "fnugg", "dekode_theme"],
+  keywords: [__("dekode", "dekode_theme"), __("fnugg", "dekode_theme")],
   attributes: {
+    name: {
+      type: "string",
+      source: "html"
+    },
+    condition: {
+      type: "object"
+    },
+    image: {
+      type: "string",
+      source: "html"
+    },
+    last_updated: {
+      type: "string",
+      source: "html"
+    },
     search: {
       type: "string",
-      source: "html",
-      selector: "p"
+      source: "html"
     }
   },
-  edit: function edit(_ref) {
-    var attributes = _ref.attributes,
-        setAttributes = _ref.setAttributes,
-        className = _ref.className;
+  edit: function edit(_ref2) {
+    var attributes = _ref2.attributes,
+        setAttributes = _ref2.setAttributes,
+        className = _ref2.className;
 
     var _useState = useState(null),
         _useState2 = _slicedToArray(_useState, 2),
-        data = _useState2[0],
-        setData = _useState2[1];
+        results = _useState2[0],
+        setResults = _useState2[1];
 
     var _useState3 = useState(""),
         _useState4 = _slicedToArray(_useState3, 2),
         query = _useState4[0],
         setQuery = _useState4[1];
 
+    var _useState5 = useState(false),
+        _useState6 = _slicedToArray(_useState5, 2),
+        isLoading = _useState6[0],
+        setLoading = _useState6[1];
+
     var search = attributes.search;
     useEffect(function () {
       var fetchItem = /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
           var _yield$ky$get$json, hits, items;
 
           return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -736,9 +940,14 @@ registerBlockType("dekode/api-fnugg", {
                   items = hits.hits.map(function (item) {
                     return item._source;
                   });
-                  setData(items);
+                  setResults(items); // Store the search matches
 
-                case 6:
+                  setLoading(false); // Explicitly indicate that we're no longer querying the API
+
+                  console.log(items);
+                  if (items.length) onSelectResult(items[0]); // Default to selecting the first matching result
+
+                case 9:
                 case "end":
                   return _context.stop();
               }
@@ -747,24 +956,38 @@ registerBlockType("dekode/api-fnugg", {
         }));
 
         return function fetchItem() {
-          return _ref2.apply(this, arguments);
+          return _ref3.apply(this, arguments);
         };
       }();
 
       fetchItem();
+      setLoading(true); // Explicitly indicate that we're in the process of querying the API
     }, [query]); // Filter the query
+
+    var onSelectResult = function onSelectResult(result) {
+      var condition = result.conditions.combined.top;
+      console.log(condition);
+      setAttributes({
+        name: result.name,
+        condition: _objectSpread(_objectSpread({}, condition), {}, {
+          description: condition.condition_description
+        }),
+        image: result.images.image_1_1_l,
+        last_updated: result.last_updated
+      });
+    };
 
     var onChangeQuery = function onChangeQuery(search) {
       setQuery(search);
-    }; // Checking the loading from the API call
+    }; // If no resort has been selected and we're currently querying the API, display a loading message
 
 
-    if (data === null) {
+    if (!attributes.name && isLoading) {
       return /*#__PURE__*/React.createElement("div", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52,
+          lineNumber: 124,
           columnNumber: 14
         }
       }, "Loading...");
@@ -775,209 +998,43 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56,
+        lineNumber: 128,
         columnNumber: 7
       }
-    }, query !== "" ? data.map(function (item) {
-      var _item$conditions$comb = item.conditions.combined.top,
-          condition_description = _item$conditions$comb.condition_description,
-          symbol = _item$conditions$comb.symbol,
-          temperature = _item$conditions$comb.temperature,
-          wind = _item$conditions$comb.wind,
-          name = item.name,
-          image_1_1_l = item.images.image_1_1_l,
-          last_updated = item.last_updated;
-      return /*#__PURE__*/React.createElement("section", {
-        class: "".concat(className, "-card"),
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 76,
-          columnNumber: 17
-        }
-      }, /*#__PURE__*/React.createElement("h5", {
-        class: "".concat(className, "-card__title"),
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 77,
-          columnNumber: 19
-        }
-      }, name), /*#__PURE__*/React.createElement("img", {
-        src: image_1_1_l,
-        alt: name[0],
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 78,
-          columnNumber: 19
-        }
-      }), /*#__PURE__*/React.createElement("div", {
-        className: "".concat(className, "-card__overlay__sub__title"),
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 79,
-          columnNumber: 19
-        }
-      }, /*#__PURE__*/React.createElement("h4", {
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 80,
-          columnNumber: 21
-        }
-      }, "Dagens Forhold"), /*#__PURE__*/React.createElement("p", {
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 81,
-          columnNumber: 21
-        }
-      }, "Oppdatert: ", last_updated[0], " ")), /*#__PURE__*/React.createElement("div", {
-        className: "".concat(className, "-card--grid"),
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 84,
-          columnNumber: 19
-        }
-      }, /*#__PURE__*/React.createElement("div", {
-        class: "cloud",
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 85,
-          columnNumber: 21
-        }
-      }, /*#__PURE__*/React.createElement("img", {
-        src: "https://image.flaticon.com/icons/svg/899/899718.svg",
-        alt: "de_fnugg_cloudy",
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 86,
-          columnNumber: 23
-        }
-      }), /*#__PURE__*/React.createElement("h5", {
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 90,
-          columnNumber: 23
-        }
-      }, symbol.name)), /*#__PURE__*/React.createElement("div", {
-        class: "degree",
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 92,
-          columnNumber: 21
-        }
-      }, /*#__PURE__*/React.createElement("h1", {
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 93,
-          columnNumber: 23
-        }
-      }, temperature.value, " \xB0")), /*#__PURE__*/React.createElement("div", {
-        class: "wind",
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 95,
-          columnNumber: 21
-        }
-      }, /*#__PURE__*/React.createElement("div", {
-        className: "wind__row__1",
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 96,
-          columnNumber: 23
-        }
-      }, /*#__PURE__*/React.createElement("img", {
-        src: "https://svgshare.com/i/Mb6.svg",
-        alt: "sidj",
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 97,
-          columnNumber: 25
-        }
-      }), /*#__PURE__*/React.createElement("h3", {
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 98,
-          columnNumber: 25
-        }
-      }, wind.mps), /*#__PURE__*/React.createElement("h5", {
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 99,
-          columnNumber: 25
-        }
-      }, "m/s")), /*#__PURE__*/React.createElement("p", {
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 101,
-          columnNumber: 23
-        }
-      }, wind.speed)), /*#__PURE__*/React.createElement("div", {
-        class: "description",
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 103,
-          columnNumber: 21
-        }
-      }, /*#__PURE__*/React.createElement("img", {
-        src: "https://i.ibb.co/9TZSzz0/road.png",
-        alt: "road",
-        border: "0",
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 104,
-          columnNumber: 23
-        }
-      }), /*#__PURE__*/React.createElement("p", {
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 109,
-          columnNumber: 23
-        }
-      }, condition_description))));
-    }) : "", /*#__PURE__*/React.createElement(RichText, {
+    }, // If selected resort info is available in attributes, display the resort card
+    attributes.name && /*#__PURE__*/React.createElement(ResortCard, _extends({}, attributes, {
+      className: className,
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 131,
+        columnNumber: 30
+      }
+    })), /*#__PURE__*/React.createElement(RichText, {
       onChange: onChangeQuery,
       value: search,
       placeholder: "Search an resort...",
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 117,
+        lineNumber: 137,
         columnNumber: 9
       }
     }));
   },
-  save: function save(_ref3) {
-    var attributes = _ref3.attributes;
-    var search = attributes.search;
-    return /*#__PURE__*/React.createElement(RichText.Content, {
-      tagName: "p",
-      value: search,
+  // Just dump the rendered card with the selected resort's information to post_content
+  save: function save(_ref4) {
+    var attributes = _ref4.attributes,
+        className = _ref4.className;
+    return /*#__PURE__*/React.createElement(ResortCard, _extends({}, attributes, {
+      className: className,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 127,
-        columnNumber: 12
+        lineNumber: 148,
+        columnNumber: 5
       }
-    });
+    }));
   }
 });
 

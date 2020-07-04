@@ -8,6 +8,42 @@ const { RichText } = wp.editor;
 const { useState, useEffect } = wp.element;
 const { Autocomplete } = wp.components;
 
+const ResortCard = ({ className, name, condition, image, last_updated }) => (
+  <section class={`${className}-card`}>
+    <h5 class={`${className}-card__title`}>{name}</h5>
+    <img src={image} alt={name} />
+    <div className={`${className}-card__overlay__sub__title`}>
+      <h4>Dagens Forhold</h4>
+      <p>Oppdatert: {last_updated} </p>
+    </div>
+
+    <div className={`${className}-card--grid`}>
+      <div class="cloud">
+        <img
+          src="https://image.flaticon.com/icons/svg/899/899718.svg"
+          alt="de_fnugg_cloudy"
+        />
+        <h5>{condition?.symbol?.name}</h5>
+      </div>
+      <div class="degree">
+        <h1>{condition?.temperature?.value} °</h1>
+      </div>
+      <div class="wind">
+        <div className="wind__row__1">
+          <img src="https://svgshare.com/i/Mb6.svg" alt="sidj" />
+          <h3>{condition?.wind?.mps}</h3>
+          <h5>m/s</h5>
+        </div>
+        <p>{condition?.wind?.speed}</p>
+      </div>
+      <div class="description">
+        <img src="https://i.ibb.co/9TZSzz0/road.png" alt="road" border="0" />
+        <p>{condition?.description}</p>
+      </div>
+    </div>
+  </section>
+);
+
 registerBlockType("dekode/api-fnugg", {
   title: __("Dekode API Fnugg", "dekode_theme"),
   description: __(
@@ -20,99 +56,83 @@ registerBlockType("dekode/api-fnugg", {
     foreground: "#fff",
     src: "admin-network",
   },
-  keywords: [__("dekode", "dekode_theme"), "fnugg", "dekode_theme"],
+  keywords: [__("dekode", "dekode_theme"), __("fnugg", "dekode_theme")],
   attributes: {
+    name: {
+      type: "string",
+      source: "html",
+    },
+    condition: {
+      type: "object",
+    },
+    image: {
+      type: "string",
+      source: "html",
+    },
+    last_updated: {
+      type: "string",
+      source: "html",
+    },
     search: {
       type: "string",
       source: "html",
-      selector: "p",
     },
   },
   edit: ({ attributes, setAttributes, className }) => {
-    const [data, setData] = useState(null);
+    const [results, setResults] = useState(null);
     const [query, setQuery] = useState("");
-    const { search } = attributes;
+    const [isLoading, setLoading] = useState(false);
 
+    const { search } = attributes;
 
     useEffect(() => {
       const fetchItem = async () => {
         const { hits } = await ky.get(`https://api.fnugg.no/search?q=${query}`).json();
         const items = hits.hits.map((item) => item._source);
-        setData(items);
+
+        setResults(items); // Store the search matches
+        setLoading(false); // Explicitly indicate that we're no longer querying the API
+        console.log(items);
+        if (items.length) onSelectResult(items[0]); // Default to selecting the first matching result
       };
+
       fetchItem();
+      setLoading(true); // Explicitly indicate that we're in the process of querying the API
     }, [query]); // Filter the query
+
+    const onSelectResult = (result) => {
+      const condition = result.conditions.combined.top;
+      console.log(condition);
+
+      setAttributes({
+        name: result.name,
+        condition: {
+          ...condition,
+          description: condition.condition_description,
+        },
+        image: result.images.image_1_1_l,
+        last_updated: result.last_updated,
+      });
+    };
 
     const onChangeQuery = (search) => {
       setQuery(search);
     };
 
-    // Checking the loading from the API call
-    if (data === null) {
+    // If no resort has been selected and we're currently querying the API, display a loading message
+    if (!attributes.name && isLoading) {
       return <div>Loading...</div>;
     }
 
     return (
       <div className={className}>
-        {query !== ""
-          ? data.map((item) => {
-              const {
-                conditions: {
-                  combined: {
-                    top: {
-                      condition_description,
-                      symbol,
-                      temperature,
-                      wind
-                    }
-                  },
-                },
-                name,
-                images: { image_1_1_l },
-                last_updated,
-              } = item;
-                            
-              return (
-                <section class={`${className}-card`}>
-                  <h5 class={`${className}-card__title`}>{name}</h5>
-                  <img src={image_1_1_l} alt={name[0]} />
-                  <div className={`${className}-card__overlay__sub__title`}>
-                    <h4>Dagens Forhold</h4>
-                    <p>Oppdatert: {last_updated[0]} </p>
-                  </div>
+        {
+          // If selected resort info is available in attributes, display the resort card
+          attributes.name && <ResortCard {...attributes} className={className} />
+        }
 
-                  <div className={`${className}-card--grid`}>
-                    <div class="cloud">
-                      <img
-                        src="https://image.flaticon.com/icons/svg/899/899718.svg"
-                        alt="de_fnugg_cloudy"
-                      />
-                      <h5>{symbol.name}</h5>
-                    </div>
-                    <div class="degree">
-                      <h1>{temperature.value} °</h1>
-                    </div>
-                    <div class="wind">
-                      <div className="wind__row__1">
-                        <img src="https://svgshare.com/i/Mb6.svg" alt="sidj" />
-                        <h3>{wind.mps}</h3>
-                        <h5>m/s</h5>
-                      </div>
-                      <p>{wind.speed}</p>
-                    </div>
-                    <div class="description">
-                      <img
-                        src="https://i.ibb.co/9TZSzz0/road.png"
-                        alt="road"
-                        border="0"
-                      />
-                      <p>{condition_description}</p>
-                    </div>
-                  </div>
-                </section>
-              );
-            })
-          : ""}
+        {/* Somewhere in here you'd use `results` to create a list of autocompletes, and
+         * use `onSelectResult()` to handle the user selecting a different result. */}
 
         <RichText
           onChange={onChangeQuery}
@@ -122,8 +142,9 @@ registerBlockType("dekode/api-fnugg", {
       </div>
     );
   },
-  save: ({ attributes }) => {
-    const { search } = attributes;
-    return <RichText.Content tagName="p" value={search} />;
-  },
+
+  // Just dump the rendered card with the selected resort's information to post_content
+  save: ({ attributes, className }) => (
+    <ResortCard {...attributes} className={className} />
+  ),
 });
