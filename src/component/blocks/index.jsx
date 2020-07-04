@@ -33,7 +33,6 @@ registerBlockType("dekode/api-fnugg", {
     const [query, setQuery] = useState("");
     const { search } = attributes;
 
-    const DeFnuggAutocomplete = () => {};
 
     useEffect(() => {
       const fetchItem = async () => {
@@ -67,16 +66,12 @@ registerBlockType("dekode/api-fnugg", {
                       wind
                     }
                   },
-                  forecast: { long_term },
                 },
                 name,
                 images: { image_1_1_l },
                 last_updated,
               } = item;
-              
-              // const { symbol = {}, temperature = {}, wind = {} } = long_term[long_term.length - 1] ?? {};
-              // console.log(item);
-              
+                            
               return (
                 <section class={`${className}-card`}>
                   <h5 class={`${className}-card__title`}>{name}</h5>
