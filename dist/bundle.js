@@ -869,6 +869,50 @@ var ResortCard = function ResortCard(_ref) {
   }, condition === null || condition === void 0 ? void 0 : condition.description))));
 };
 
+var DropdownList = function DropdownList(_ref2) {
+  var array = _ref2.array,
+      className = _ref2.className,
+      _onChange = _ref2.onChange;
+  return /*#__PURE__*/React.createElement("section", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 3
+    }
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "".concat(className, "__resort-name"),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 5
+    }
+  }, "Choose a resort"), /*#__PURE__*/React.createElement("select", {
+    id: "".concat(className, "__resort-name"),
+    onChange: function onChange(_ref3) {
+      var value = _ref3.target.value;
+      return _onChange(array[value]);
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 5
+    }
+  }, array.map(function (item, i) {
+    return /*#__PURE__*/React.createElement("option", {
+      value: i,
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 54,
+        columnNumber: 16
+      }
+    }, item.name);
+  })));
+};
+
 registerBlockType("dekode/api-fnugg", {
   title: __("Dekode API Fnugg", "dekode_theme"),
   description: __("Based on the response from the API for the selected resort insert a block in the post content that presents the data fields displayed", "dekode_theme"),
@@ -896,10 +940,10 @@ registerBlockType("dekode/api-fnugg", {
       type: "string"
     }
   },
-  edit: function edit(_ref2) {
-    var attributes = _ref2.attributes,
-        setAttributes = _ref2.setAttributes,
-        className = _ref2.className;
+  edit: function edit(_ref4) {
+    var attributes = _ref4.attributes,
+        setAttributes = _ref4.setAttributes,
+        className = _ref4.className;
 
     var _useState = useState([]),
         _useState2 = _slicedToArray(_useState, 2),
@@ -919,7 +963,7 @@ registerBlockType("dekode/api-fnugg", {
     var search = attributes.search;
     useEffect(function () {
       var fetchItem = /*#__PURE__*/function () {
-        var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
           var _yield$ky$get$json, hits, items;
 
           return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -950,7 +994,7 @@ registerBlockType("dekode/api-fnugg", {
         }));
 
         return function fetchItem() {
-          return _ref3.apply(this, arguments);
+          return _ref5.apply(this, arguments);
         };
       }();
 
@@ -980,7 +1024,7 @@ registerBlockType("dekode/api-fnugg", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117,
+          lineNumber: 131,
           columnNumber: 14
         }
       }, "Loading...");
@@ -991,7 +1035,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 121,
+        lineNumber: 135,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(ResortCard, _extends({}, attributes, {
@@ -999,61 +1043,41 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122,
+        lineNumber: 136,
         columnNumber: 9
       }
-    })), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "resort-name",
+    })), /*#__PURE__*/React.createElement(DropdownList, {
+      array: results,
+      className: className,
+      onChange: onSelectResult,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 124,
-        columnNumber: 10
-      }
-    }, "Choose a resort"), /*#__PURE__*/React.createElement("select", {
-      id: "resort-name",
-      onChange: function onChange(_ref4) {
-        var value = _ref4.target.value;
-        return onSelectResult(results[value]);
-      },
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 125,
+        lineNumber: 138,
         columnNumber: 9
       }
-    }, results.map(function (item, i) {
-      return /*#__PURE__*/React.createElement("option", {
-        value: i,
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 127,
-          columnNumber: 20
-        }
-      }, item.name);
-    })), /*#__PURE__*/React.createElement(RichText, {
+    }), /*#__PURE__*/React.createElement(RichText, {
       onChange: onChangeQuery,
       value: search,
       placeholder: "Search an resort...",
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131,
+        lineNumber: 140,
         columnNumber: 9
       }
     }));
   },
   // Just dump the rendered card with the selected resort's information to post_content
-  save: function save(_ref5) {
-    var attributes = _ref5.attributes,
-        className = _ref5.className;
+  save: function save(_ref6) {
+    var attributes = _ref6.attributes,
+        className = _ref6.className;
     return /*#__PURE__*/React.createElement(ResortCard, _extends({}, attributes, {
       className: className,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 142,
+        lineNumber: 152,
         columnNumber: 5
       }
     }));

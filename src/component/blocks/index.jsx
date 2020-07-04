@@ -43,6 +43,20 @@ const ResortCard = ({ className, name, condition, image, last_updated }) => (
   </section>
 );
 
+const DropdownList = ({ array, className, onChange }) => (
+  <section>
+    <label htmlFor={`${className}__resort-name`}>Choose a resort</label>
+    <select
+      id={`${className}__resort-name`}
+      onChange={({ target: { value } }) => onChange(array[value])}
+    >
+      {array.map((item, i) => {
+        return <option value={i}>{item.name}</option>;
+      })}
+    </select>
+  </section>
+);
+
 registerBlockType("dekode/api-fnugg", {
   title: __("Dekode API Fnugg", "dekode_theme"),
   description: __(
@@ -121,14 +135,10 @@ registerBlockType("dekode/api-fnugg", {
       <div className={className}>
         <ResortCard {...attributes} className={className} />
 
-         <label htmlFor="resort-name">Choose a resort</label>
-        <select id="resort-name" onChange={({target: {value}}) => onSelectResult(results[value])}>
-          {results.map((item, i) => {
-            return <option value={i}>{item.name}</option>;
-          })}
-        </select>
+        <DropdownList array={results} className={className} onChange={onSelectResult}/>
 
         <RichText
+          
           onChange={onChangeQuery}
           value={search}
           placeholder="Search an resort..."
