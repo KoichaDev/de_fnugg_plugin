@@ -60,22 +60,18 @@ registerBlockType("dekode/api-fnugg", {
   attributes: {
     name: {
       type: "string",
-      source: "html",
     },
     condition: {
       type: "object",
     },
     image: {
       type: "string",
-      source: "html",
     },
     last_updated: {
       type: "string",
-      source: "html",
     },
     search: {
       type: "string",
-      source: "html",
     },
   },
   edit: ({ attributes, setAttributes, className }) => {
@@ -102,7 +98,6 @@ registerBlockType("dekode/api-fnugg", {
 
     const onSelectResult = (result) => {
       const condition = result.conditions.combined.top;
-      console.log(condition);
 
       setAttributes({
         name: result.name,

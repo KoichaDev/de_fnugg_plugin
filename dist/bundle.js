@@ -882,23 +882,19 @@ registerBlockType("dekode/api-fnugg", {
   keywords: [__("dekode", "dekode_theme"), __("fnugg", "dekode_theme")],
   attributes: {
     name: {
-      type: "string",
-      source: "html"
+      type: "string"
     },
     condition: {
       type: "object"
     },
     image: {
-      type: "string",
-      source: "html"
+      type: "string"
     },
     last_updated: {
-      type: "string",
-      source: "html"
+      type: "string"
     },
     search: {
-      type: "string",
-      source: "html"
+      type: "string"
     }
   },
   edit: function edit(_ref2) {
@@ -966,7 +962,6 @@ registerBlockType("dekode/api-fnugg", {
 
     var onSelectResult = function onSelectResult(result) {
       var condition = result.conditions.combined.top;
-      console.log(condition);
       setAttributes({
         name: result.name,
         condition: _objectSpread(_objectSpread({}, condition), {}, {
@@ -987,7 +982,7 @@ registerBlockType("dekode/api-fnugg", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124,
+          lineNumber: 119,
           columnNumber: 14
         }
       }, "Loading...");
@@ -998,7 +993,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128,
+        lineNumber: 123,
         columnNumber: 7
       }
     }, // If selected resort info is available in attributes, display the resort card
@@ -1007,7 +1002,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131,
+        lineNumber: 126,
         columnNumber: 30
       }
     })), /*#__PURE__*/React.createElement(RichText, {
@@ -1017,7 +1012,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 137,
+        lineNumber: 132,
         columnNumber: 9
       }
     }));
@@ -1031,7 +1026,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 148,
+        lineNumber: 143,
         columnNumber: 5
       }
     }));
