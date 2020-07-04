@@ -692,7 +692,6 @@ var RichText = wp.editor.RichText;
 var _wp$element = wp.element,
     useState = _wp$element.useState,
     useEffect = _wp$element.useEffect;
-var Autocomplete = wp.components.Autocomplete;
 
 var ResortCard = function ResortCard(_ref) {
   var _condition$symbol, _condition$temperatur, _condition$wind, _condition$wind2;
@@ -707,7 +706,7 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 11,
       columnNumber: 3
     }
   }, /*#__PURE__*/React.createElement("h5", {
@@ -715,7 +714,7 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 12,
       columnNumber: 5
     }
   }, name), /*#__PURE__*/React.createElement("img", {
@@ -724,7 +723,7 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 13,
       columnNumber: 5
     }
   }), /*#__PURE__*/React.createElement("div", {
@@ -732,21 +731,21 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 14,
       columnNumber: 5
     }
   }, /*#__PURE__*/React.createElement("h4", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 15,
       columnNumber: 7
     }
   }, "Dagens Forhold"), /*#__PURE__*/React.createElement("p", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 16,
       columnNumber: 7
     }
   }, "Oppdatert: ", last_updated, " ")), /*#__PURE__*/React.createElement("div", {
@@ -754,7 +753,7 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 19,
       columnNumber: 5
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -762,7 +761,7 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 20,
       columnNumber: 7
     }
   }, /*#__PURE__*/React.createElement("img", {
@@ -771,14 +770,14 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 21,
       columnNumber: 9
     }
   }), /*#__PURE__*/React.createElement("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 25,
       columnNumber: 9
     }
   }, condition === null || condition === void 0 ? void 0 : (_condition$symbol = condition.symbol) === null || _condition$symbol === void 0 ? void 0 : _condition$symbol.name)), /*#__PURE__*/React.createElement("div", {
@@ -786,14 +785,14 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 27,
       columnNumber: 7
     }
   }, /*#__PURE__*/React.createElement("h1", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 9
     }
   }, condition === null || condition === void 0 ? void 0 : (_condition$temperatur = condition.temperature) === null || _condition$temperatur === void 0 ? void 0 : _condition$temperatur.value, " \xB0")), /*#__PURE__*/React.createElement("div", {
@@ -801,7 +800,7 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 7
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -809,7 +808,7 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 31,
       columnNumber: 9
     }
   }, /*#__PURE__*/React.createElement("img", {
@@ -818,28 +817,28 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 32,
       columnNumber: 11
     }
   }), /*#__PURE__*/React.createElement("h3", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 33,
       columnNumber: 11
     }
   }, condition === null || condition === void 0 ? void 0 : (_condition$wind = condition.wind) === null || _condition$wind === void 0 ? void 0 : _condition$wind.mps), /*#__PURE__*/React.createElement("h5", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 34,
       columnNumber: 11
     }
   }, "m/s")), /*#__PURE__*/React.createElement("p", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 36,
       columnNumber: 9
     }
   }, condition === null || condition === void 0 ? void 0 : (_condition$wind2 = condition.wind) === null || _condition$wind2 === void 0 ? void 0 : _condition$wind2.speed)), /*#__PURE__*/React.createElement("div", {
@@ -847,7 +846,7 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 38,
       columnNumber: 7
     }
   }, /*#__PURE__*/React.createElement("img", {
@@ -857,14 +856,14 @@ var ResortCard = function ResortCard(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 39,
       columnNumber: 9
     }
   }), /*#__PURE__*/React.createElement("p", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 40,
       columnNumber: 9
     }
   }, condition === null || condition === void 0 ? void 0 : condition.description))));
@@ -940,10 +939,9 @@ registerBlockType("dekode/api-fnugg", {
 
                   setLoading(false); // Explicitly indicate that we're no longer querying the API
 
-                  console.log(items);
                   if (items.length) onSelectResult(items[0]); // Default to selecting the first matching result
 
-                case 9:
+                case 8:
                 case "end":
                   return _context.stop();
               }
@@ -982,7 +980,7 @@ registerBlockType("dekode/api-fnugg", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119,
+          lineNumber: 117,
           columnNumber: 14
         }
       }, "Loading...");
@@ -993,17 +991,19 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123,
+        lineNumber: 121,
         columnNumber: 7
       }
-    }, // If selected resort info is available in attributes, display the resort card
-    attributes.name && /*#__PURE__*/React.createElement(ResortCard, _extends({}, attributes, {
+    },
+    /*#__PURE__*/
+    // If selected resort info is available in attributes, display the resort card
+    React.createElement(ResortCard, _extends({}, attributes, {
       className: className,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 126,
-        columnNumber: 30
+        lineNumber: 124,
+        columnNumber: 11
       }
     })), /*#__PURE__*/React.createElement(RichText, {
       onChange: onChangeQuery,
@@ -1012,7 +1012,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 132,
+        lineNumber: 130,
         columnNumber: 9
       }
     }));
@@ -1026,7 +1026,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 143,
+        lineNumber: 141,
         columnNumber: 5
       }
     }));

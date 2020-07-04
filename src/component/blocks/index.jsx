@@ -6,7 +6,6 @@ const { registerBlockType } = wp.blocks;
 const { __ } = wp.i18n;
 const { RichText } = wp.editor;
 const { useState, useEffect } = wp.element;
-const { Autocomplete } = wp.components;
 
 const ResortCard = ({ className, name, condition, image, last_updated }) => (
   <section class={`${className}-card`}>
@@ -88,7 +87,6 @@ registerBlockType("dekode/api-fnugg", {
 
         setResults(items); // Store the search matches
         setLoading(false); // Explicitly indicate that we're no longer querying the API
-        console.log(items);
         if (items.length) onSelectResult(items[0]); // Default to selecting the first matching result
       };
 
@@ -123,7 +121,7 @@ registerBlockType("dekode/api-fnugg", {
       <div className={className}>
         {
           // If selected resort info is available in attributes, display the resort card
-          attributes.name && <ResortCard {...attributes} className={className} />
+          <ResortCard {...attributes} className={className} />
         }
 
         {/* Somewhere in here you'd use `results` to create a list of autocompletes, and
