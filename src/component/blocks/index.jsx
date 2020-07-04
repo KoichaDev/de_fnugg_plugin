@@ -6,6 +6,7 @@ const { registerBlockType } = wp.blocks;
 const { __ } = wp.i18n;
 const { RichText } = wp.editor;
 const { useState, useEffect } = wp.element;
+const { Autocomplete } = wp.components;
 
 registerBlockType("dekode/api-fnugg", {
   title: __("Dekode API Fnugg", "dekode_theme"),
@@ -32,6 +33,8 @@ registerBlockType("dekode/api-fnugg", {
     const [query, setQuery] = useState("");
     const { search } = attributes;
 
+    const DeFnuggAutocomplete = () => {};
+
     useEffect(() => {
       const fetchItem = async () => {
         const { hits } = await ky.get(`https://api.fnugg.no/search?q=${query}`).json();
@@ -39,69 +42,82 @@ registerBlockType("dekode/api-fnugg", {
         setData(items);
       };
       fetchItem();
-    }, [query]); // Use to filter query
+    }, [query]); // Filter the query
 
     const onChangeQuery = (search) => {
       setQuery(search);
     };
 
+    // Checking the loading from the API call
     if (data === null) {
-      // if data is still it's initial value, then the API call hasn't resolved yet. Output something else for the user to look at
-      return <div>...Still loading!...</div>;
+      return <div>Loading...</div>;
     }
 
-    console.log("data loaded");
-    
     return (
       <div className={className}>
-        {data.map(item => {
-          const {
-            name,
-            images: { image_1_1_l },
-            last_updated
-          } = item;
-          return (
-            <section class={`${className}-card`}>
-              <h5 class={`${className}-card__title`}>{name}</h5>
-              <img
-                src={image_1_1_l}
-                alt={name}
-              />
-              <div className={`${className}-card__overlay__sub__title`}>
-                <h4>Dagens Forhold</h4>
-                <p>Oppdatert: {last_updated} </p>
-              </div>
-
-              <div className={`${className}-card--grid`}>
-                <div class="cloud">
-                  <img
-                    src="https://image.flaticon.com/icons/svg/899/899718.svg"
-                    alt="de_fnugg_cloudy"
-                  />
-                  <h5>Overskyet</h5>
-                </div>
-                <div class="degree">
-                  <h1>10 °</h1>
-                </div>
-                <div class="wind">
-                  <div className="wind__row__1">
-                    <img src="https://svgshare.com/i/Mb6.svg" alt="sidj" />
-                    <h3>2.5</h3>
-                    <h5>m/s</h5>
+        {query !== ""
+          ? data.map((item) => {
+              const {
+                conditions: {
+                  combined: {
+                    top: {
+                      condition_description,
+                      symbol,
+                      temperature,
+                      wind
+                    }
+                  },
+                  forecast: { long_term },
+                },
+                name,
+                images: { image_1_1_l },
+                last_updated,
+              } = item;
+              
+              // const { symbol = {}, temperature = {}, wind = {} } = long_term[long_term.length - 1] ?? {};
+              // console.log(item);
+              
+              return (
+                <section class={`${className}-card`}>
+                  <h5 class={`${className}-card__title`}>{name}</h5>
+                  <img src={image_1_1_l} alt={name[0]} />
+                  <div className={`${className}-card__overlay__sub__title`}>
+                    <h4>Dagens Forhold</h4>
+                    <p>Oppdatert: {last_updated[0]} </p>
                   </div>
-                  <p>Så og si Vindstille</p>
-                </div>
-                <div class="description">
-                  <img src="https://i.ibb.co/9TZSzz0/road.png" alt="road" border="0" />
-                  <p>Deilig Vårsnø</p>
-                </div>
-              </div>
-            </section>
-          );
 
-          
-
-        })}
+                  <div className={`${className}-card--grid`}>
+                    <div class="cloud">
+                      <img
+                        src="https://image.flaticon.com/icons/svg/899/899718.svg"
+                        alt="de_fnugg_cloudy"
+                      />
+                      <h5>{symbol.name}</h5>
+                    </div>
+                    <div class="degree">
+                      <h1>{temperature.value} °</h1>
+                    </div>
+                    <div class="wind">
+                      <div className="wind__row__1">
+                        <img src="https://svgshare.com/i/Mb6.svg" alt="sidj" />
+                        <h3>{wind.mps}</h3>
+                        <h5>m/s</h5>
+                      </div>
+                      <p>{wind.speed}</p>
+                    </div>
+                    <div class="description">
+                      <img
+                        src="https://i.ibb.co/9TZSzz0/road.png"
+                        alt="road"
+                        border="0"
+                      />
+                      <p>{condition_description}</p>
+                    </div>
+                  </div>
+                </section>
+              );
+            })
+          : ""}
 
         <RichText
           onChange={onChangeQuery}

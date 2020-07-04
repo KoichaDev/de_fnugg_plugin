@@ -684,6 +684,7 @@ var RichText = wp.editor.RichText;
 var _wp$element = wp.element,
     useState = _wp$element.useState,
     useEffect = _wp$element.useEffect;
+var Autocomplete = wp.components.Autocomplete;
 registerBlockType("dekode/api-fnugg", {
   title: __("Dekode API Fnugg", "dekode_theme"),
   description: __("Based on the response from the API for the selected resort insert a block in the post content that presents the data fields displayed", "dekode_theme"),
@@ -717,6 +718,9 @@ registerBlockType("dekode/api-fnugg", {
         setQuery = _useState4[1];
 
     var search = attributes.search;
+
+    var DeFnuggAutocomplete = function DeFnuggAutocomplete() {};
+
     useEffect(function () {
       var fetchItem = /*#__PURE__*/function () {
         var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -751,99 +755,107 @@ registerBlockType("dekode/api-fnugg", {
       }();
 
       fetchItem();
-    }, [query]); // Use to filter query
+    }, [query]); // Filter the query
 
     var onChangeQuery = function onChangeQuery(search) {
       setQuery(search);
-    };
+    }; // Checking the loading from the API call
+
 
     if (data === null) {
-      // if data is still it's initial value, then the API call hasn't resolved yet. Output something else for the user to look at
       return /*#__PURE__*/React.createElement("div", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50,
+          lineNumber: 53,
           columnNumber: 14
         }
-      }, "...Still loading!...");
+      }, "Loading...");
     }
 
-    console.log("data loaded");
     return /*#__PURE__*/React.createElement("div", {
       className: className,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56,
+        lineNumber: 57,
         columnNumber: 7
       }
-    }, data.map(function (item) {
-      var name = item.name,
+    }, query !== "" ? data.map(function (item) {
+      var _item$conditions = item.conditions,
+          _item$conditions$comb = _item$conditions.combined.top,
+          condition_description = _item$conditions$comb.condition_description,
+          symbol = _item$conditions$comb.symbol,
+          temperature = _item$conditions$comb.temperature,
+          wind = _item$conditions$comb.wind,
+          long_term = _item$conditions.forecast.long_term,
+          name = item.name,
           image_1_1_l = item.images.image_1_1_l,
-          last_updated = item.last_updated;
+          last_updated = item.last_updated; // const { symbol = {}, temperature = {}, wind = {} } = long_term[long_term.length - 1] ?? {};
+      // console.log(item);
+
       return /*#__PURE__*/React.createElement("section", {
         class: "".concat(className, "-card"),
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64,
-          columnNumber: 13
+          lineNumber: 81,
+          columnNumber: 17
         }
       }, /*#__PURE__*/React.createElement("h5", {
         class: "".concat(className, "-card__title"),
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65,
-          columnNumber: 15
+          lineNumber: 82,
+          columnNumber: 19
         }
       }, name), /*#__PURE__*/React.createElement("img", {
         src: image_1_1_l,
-        alt: name,
+        alt: name[0],
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66,
-          columnNumber: 15
+          lineNumber: 83,
+          columnNumber: 19
         }
       }), /*#__PURE__*/React.createElement("div", {
         className: "".concat(className, "-card__overlay__sub__title"),
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70,
-          columnNumber: 15
+          lineNumber: 84,
+          columnNumber: 19
         }
       }, /*#__PURE__*/React.createElement("h4", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71,
-          columnNumber: 17
+          lineNumber: 85,
+          columnNumber: 21
         }
       }, "Dagens Forhold"), /*#__PURE__*/React.createElement("p", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72,
-          columnNumber: 17
+          lineNumber: 86,
+          columnNumber: 21
         }
-      }, "Oppdatert: ", last_updated, " ")), /*#__PURE__*/React.createElement("div", {
+      }, "Oppdatert: ", last_updated[0], " ")), /*#__PURE__*/React.createElement("div", {
         className: "".concat(className, "-card--grid"),
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75,
-          columnNumber: 15
+          lineNumber: 89,
+          columnNumber: 19
         }
       }, /*#__PURE__*/React.createElement("div", {
         class: "cloud",
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76,
-          columnNumber: 17
+          lineNumber: 90,
+          columnNumber: 21
         }
       }, /*#__PURE__*/React.createElement("img", {
         src: "https://image.flaticon.com/icons/svg/899/899718.svg",
@@ -851,46 +863,46 @@ registerBlockType("dekode/api-fnugg", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77,
-          columnNumber: 19
+          lineNumber: 91,
+          columnNumber: 23
         }
       }), /*#__PURE__*/React.createElement("h5", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81,
-          columnNumber: 19
+          lineNumber: 95,
+          columnNumber: 23
         }
-      }, "Overskyet")), /*#__PURE__*/React.createElement("div", {
+      }, symbol.name)), /*#__PURE__*/React.createElement("div", {
         class: "degree",
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83,
-          columnNumber: 17
+          lineNumber: 97,
+          columnNumber: 21
         }
       }, /*#__PURE__*/React.createElement("h1", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84,
-          columnNumber: 19
+          lineNumber: 98,
+          columnNumber: 23
         }
-      }, "10 \xB0")), /*#__PURE__*/React.createElement("div", {
+      }, temperature.value, " \xB0")), /*#__PURE__*/React.createElement("div", {
         class: "wind",
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86,
-          columnNumber: 17
+          lineNumber: 100,
+          columnNumber: 21
         }
       }, /*#__PURE__*/React.createElement("div", {
         className: "wind__row__1",
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87,
-          columnNumber: 19
+          lineNumber: 101,
+          columnNumber: 23
         }
       }, /*#__PURE__*/React.createElement("img", {
         src: "https://svgshare.com/i/Mb6.svg",
@@ -898,37 +910,37 @@ registerBlockType("dekode/api-fnugg", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88,
-          columnNumber: 21
+          lineNumber: 102,
+          columnNumber: 25
         }
       }), /*#__PURE__*/React.createElement("h3", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 89,
-          columnNumber: 21
+          lineNumber: 103,
+          columnNumber: 25
         }
-      }, "2.5"), /*#__PURE__*/React.createElement("h5", {
+      }, wind.mps), /*#__PURE__*/React.createElement("h5", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90,
-          columnNumber: 21
+          lineNumber: 104,
+          columnNumber: 25
         }
       }, "m/s")), /*#__PURE__*/React.createElement("p", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92,
-          columnNumber: 19
+          lineNumber: 106,
+          columnNumber: 23
         }
-      }, "S\xE5 og si Vindstille")), /*#__PURE__*/React.createElement("div", {
+      }, wind.speed)), /*#__PURE__*/React.createElement("div", {
         class: "description",
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94,
-          columnNumber: 17
+          lineNumber: 108,
+          columnNumber: 21
         }
       }, /*#__PURE__*/React.createElement("img", {
         src: "https://i.ibb.co/9TZSzz0/road.png",
@@ -937,25 +949,25 @@ registerBlockType("dekode/api-fnugg", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95,
-          columnNumber: 19
+          lineNumber: 109,
+          columnNumber: 23
         }
       }), /*#__PURE__*/React.createElement("p", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96,
-          columnNumber: 19
+          lineNumber: 114,
+          columnNumber: 23
         }
-      }, "Deilig V\xE5rsn\xF8"))));
-    }), /*#__PURE__*/React.createElement(RichText, {
+      }, condition_description))));
+    }) : "", /*#__PURE__*/React.createElement(RichText, {
       onChange: onChangeQuery,
       value: search,
       placeholder: "Search an resort...",
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 106,
+        lineNumber: 122,
         columnNumber: 9
       }
     }));
@@ -969,7 +981,7 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 116,
+        lineNumber: 132,
         columnNumber: 12
       }
     });
