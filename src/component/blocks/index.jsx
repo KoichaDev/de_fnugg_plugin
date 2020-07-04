@@ -74,7 +74,7 @@ registerBlockType("dekode/api-fnugg", {
     },
   },
   edit: ({ attributes, setAttributes, className }) => {
-    const [results, setResults] = useState(null);
+    const [results, setResults] = useState([]);
     const [query, setQuery] = useState("");
     const [isLoading, setLoading] = useState(false);
 
@@ -119,13 +119,14 @@ registerBlockType("dekode/api-fnugg", {
 
     return (
       <div className={className}>
-        {
-          // If selected resort info is available in attributes, display the resort card
-          <ResortCard {...attributes} className={className} />
-        }
+        <ResortCard {...attributes} className={className} />
 
-        {/* Somewhere in here you'd use `results` to create a list of autocompletes, and
-         * use `onSelectResult()` to handle the user selecting a different result. */}
+         <label htmlFor="resort-name">Choose a resort</label>
+        <select id="resort-name" onChange={({target: {value}}) => onSelectResult(results[value])}>
+          {results.map((item, i) => {
+            return <option value={i}>{item.name}</option>;
+          })}
+        </select>
 
         <RichText
           onChange={onChangeQuery}

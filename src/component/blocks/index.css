@@ -121,3 +121,7 @@
 .description > p {
     margin: 8px !important;
 }
+
+#wp-block-dekode-api-fnugg__resort-name {
+  margin: 2rem !important; 
+}

@@ -901,7 +901,7 @@ registerBlockType("dekode/api-fnugg", {
         setAttributes = _ref2.setAttributes,
         className = _ref2.className;
 
-    var _useState = useState(null),
+    var _useState = useState([]),
         _useState2 = _slicedToArray(_useState, 2),
         results = _useState2[0],
         setResults = _useState2[1];
@@ -994,17 +994,44 @@ registerBlockType("dekode/api-fnugg", {
         lineNumber: 121,
         columnNumber: 7
       }
-    },
-    /*#__PURE__*/
-    // If selected resort info is available in attributes, display the resort card
-    React.createElement(ResortCard, _extends({}, attributes, {
+    }, /*#__PURE__*/React.createElement(ResortCard, _extends({}, attributes, {
       className: className,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 124,
-        columnNumber: 11
+        lineNumber: 122,
+        columnNumber: 9
       }
+    })), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "resort-name",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 124,
+        columnNumber: 10
+      }
+    }, "Choose a resort"), /*#__PURE__*/React.createElement("select", {
+      id: "resort-name",
+      onChange: function onChange(_ref4) {
+        var value = _ref4.target.value;
+        return onSelectResult(results[value]);
+      },
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 125,
+        columnNumber: 9
+      }
+    }, results.map(function (item, i) {
+      return /*#__PURE__*/React.createElement("option", {
+        value: i,
+        __self: _this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 127,
+          columnNumber: 20
+        }
+      }, item.name);
     })), /*#__PURE__*/React.createElement(RichText, {
       onChange: onChangeQuery,
       value: search,
@@ -1012,21 +1039,21 @@ registerBlockType("dekode/api-fnugg", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 130,
+        lineNumber: 131,
         columnNumber: 9
       }
     }));
   },
   // Just dump the rendered card with the selected resort's information to post_content
-  save: function save(_ref4) {
-    var attributes = _ref4.attributes,
-        className = _ref4.className;
+  save: function save(_ref5) {
+    var attributes = _ref5.attributes,
+        className = _ref5.className;
     return /*#__PURE__*/React.createElement(ResortCard, _extends({}, attributes, {
       className: className,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 141,
+        lineNumber: 142,
         columnNumber: 5
       }
     }));
