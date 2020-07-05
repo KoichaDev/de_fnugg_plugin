@@ -1,4 +1,4 @@
-## Introduksjon
+## :pencil:Introduksjon
 
 Jeg har laget en Gutenberg block der brukeren kan velge en blokk fra editoren. 
 Når brukeren trykker på **Dekode API Fnugg**, så vil det dukkle blokk som tar automatisk en API kall fra https://api.fnugg.no/search?q= 
@@ -11,7 +11,7 @@ Jeg sørget for at den første treffen den finner utifra API'en, så skal det pr
 
 
 
-## Implementering
+## :tada: Implementering
 
 Jeg har prøvd å bruke [***Autocomplete komponent***](https://developer.wordpress.org/block-editor/components/autocomplete/) som er ferdig laget i Wordpress, men etter mange forsøk med googling, og implementering, så fant jeg ut at Autocomplete komponent er ikke 100% brukbar.
 
@@ -27,9 +27,9 @@ Jeg brukte en allerede ferdig komponent som heter [RichText editor](https://deve
 
 
 
-## Script
+## 🔨 Script
 
-### For å starte prosjektet
+### ✨ For å starte prosjektet
 
 For å laste ned alle dependencies/biblioteker for denne test oppgaven
 
@@ -39,11 +39,11 @@ npm install
 
 
 
-Jeg har brukt Webpack, og Babel for å sørge at kodene jeg skriver for Gutenberg block kan være i development, production og minify mode. Minify Mode vil minifier JavaScript, og CSS. Jeg har også implementert Babel for å konvertere kodene jeg skriver til **jsx** (React), slikt at jeg kan forholde meg til jsx syntaksene. 
+Jeg har brukt Webpack, og Babel for å sørge at kodene jeg skriver for Gutenberg block kan være i development, production og minify mode. Minify Mode vil minifier JavaScript, og CSS. Jeg har også implementert Babel for å konvertere kodene jeg skriver til **jsx** (React), for å forholde meg til kun jsx syntaksene. 
 
 
 
-**Devtool**
+🔨 **Devtool**
 
 Konfigurasjonen jeg har brukt for webpack til å minify og babel :
 
@@ -53,7 +53,7 @@ Konfigurasjonen jeg har brukt for webpack til å minify og babel :
 
 
 
-**Development mode**
+👨‍💻**Development mode**
 Kun for utviklings miljøet. Når endringer oppstår, så vil editoren sørge for å **watch**. Dette gjør at utvikleren slipper å skrive kommando linje hver gang når endringer skal oppstå. Development mode vil gi en feil melding hvis det er noe galt med kode utviklingen. 
 
 ```
@@ -62,7 +62,7 @@ npm start
 
 
 
-**Production mode**
+:rocket:**Production/Deplying mode**
 
 Jeg har brukt [gulp](https://gulpjs.com/docs/en/getting-started/quick-start), og [gulp-zip](https://www.npmjs.com/package/gulp-zip) for å zippe kun de essentsielle filene til plugin. Hensikten er å skille mellom  produksjons klar plugin, og kilde kode til utviklingen.  
 
