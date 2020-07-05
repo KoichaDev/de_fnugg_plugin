@@ -136,7 +136,7 @@ registerBlockType("dekode/api-fnugg", {
         <ResortCard {...attributes} className={className} />
 
         <DropdownList array={results} className={className} onChange={onSelectResult}/>
-        <Test />
+
         <RichText
 
           onChange={onChangeQuery}
