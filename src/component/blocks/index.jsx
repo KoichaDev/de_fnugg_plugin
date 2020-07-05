@@ -34,16 +34,11 @@ registerBlockType('dekode/api-fnugg', {
     last_updated: {
       type: 'string',
     },
-    search: {
-      type: 'string',
-    },
   },
   edit: ({ attributes, setAttributes, className }) => {
     const [results, setResults] = useState([]);
     const [query, setQuery] = useState('');
     const [isLoading, setLoading] = useState(false);
-
-    const { search } = attributes;
 
     useEffect(() => {
       const fetchItem = async () => {
@@ -73,10 +68,6 @@ registerBlockType('dekode/api-fnugg', {
       });
     };
 
-    const onChangeQuery = (search) => {
-      setQuery(search);
-    };
-
     // If no resort has been selected and we're currently querying the API, display a loading message
     if (!attributes.name && isLoading) {
       return <div>Loading...</div>;
@@ -90,8 +81,7 @@ registerBlockType('dekode/api-fnugg', {
 
         <RichText
           className={`${className}-editor`}
-          onChange={onChangeQuery}
-          value={search}
+          onChange={setQuery}
           placeholder='Search an resort...'
         />
       </div>
