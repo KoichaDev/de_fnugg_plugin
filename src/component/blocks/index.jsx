@@ -1,95 +1,46 @@
-import ky from "ky";
-
-import "./index.css";
+import ky from 'ky';
+import ResortCard from './Resortcard.component.jsx';
+import DropdownList from './DropdownList.component.jsx';
+import './index.style.css';
 
 const { registerBlockType } = wp.blocks;
 const { __ } = wp.i18n;
 const { RichText } = wp.editor;
 const { useState, useEffect } = wp.element;
 
-const ResortCard = ({ className, name, condition, image, last_updated }) => (
-  <section class={`${className}-card`}>
-    <h5 class={`${className}-card__title`}>{name}</h5>
-    <img src={image} alt={name} />
-    <div className={`${className}-card__overlay__sub__title`}>
-      <h4>Dagens Forhold</h4>
-      <p>Oppdatert: {last_updated} </p>
-    </div>
-
-    <div className={`${className}-card--grid`}>
-      <div class="cloud">
-        <img
-          src="https://image.flaticon.com/icons/svg/899/899718.svg"
-          alt="de_fnugg_cloudy"
-        />
-        <h5>{condition?.symbol?.name}</h5>
-      </div>
-      <div class="degree">
-        <h1>{condition?.temperature?.value} °</h1>
-      </div>
-      <div class="wind">
-        <div className="wind__row__1">
-          <img src="https://svgshare.com/i/Mb6.svg" alt="sidj" />
-          <h3>{condition?.wind?.mps}</h3>
-          <h5>m/s</h5>
-        </div>
-        <p>{condition?.wind?.speed}</p>
-      </div>
-      <div class="description">
-        <img src="https://i.ibb.co/9TZSzz0/road.png" alt="road" border="0" />
-        <p>{condition?.description}</p>
-      </div>
-    </div>
-  </section>
-);
-
-const DropdownList = ({ array, className, onChange }) => (
-  <section>
-    <label htmlFor={`${className}__resort-name`}>Choose a resort</label>
-    <select
-      id={`${className}__resort-name`}
-      onChange={({ target: { value } }) => onChange(array[value])}
-    >
-      {array.map((item, i) => {
-        return <option value={i}>{item.name}</option>;
-      })}
-    </select>
-  </section>
-);
-
-registerBlockType("dekode/api-fnugg", {
-  title: __("Dekode API Fnugg", "dekode_theme"),
+registerBlockType('dekode/api-fnugg', {
+  title: __('Dekode API Fnugg', 'dekode_theme'),
   description: __(
-    "Based on the response from the API for the selected resort insert a block in the post content that presents the data fields displayed",
-    "dekode_theme"
+    'Based on the response from the API for the selected resort insert a block in the post content that presents the data fields displayed',
+    'dekode_theme'
   ),
-  category: "layout",
+  category: 'layout',
   icon: {
-    background: "#f03",
-    foreground: "#fff",
-    src: "admin-network",
+    background: '#f03',
+    foreground: '#fff',
+    src: 'admin-network',
   },
-  keywords: [__("dekode", "dekode_theme"), __("fnugg", "dekode_theme")],
+  keywords: [__('dekode', 'dekode_theme'), __('fnugg', 'dekode_theme')],
   attributes: {
     name: {
-      type: "string",
+      type: 'string',
     },
     condition: {
-      type: "object",
+      type: 'object',
     },
     image: {
-      type: "string",
+      type: 'string',
     },
     last_updated: {
-      type: "string",
+      type: 'string',
     },
     search: {
-      type: "string",
+      type: 'string',
     },
   },
   edit: ({ attributes, setAttributes, className }) => {
     const [results, setResults] = useState([]);
-    const [query, setQuery] = useState("");
+    const [query, setQuery] = useState('');
     const [isLoading, setLoading] = useState(false);
 
     const { search } = attributes;
@@ -117,7 +68,7 @@ registerBlockType("dekode/api-fnugg", {
           ...condition,
           description: condition.condition_description,
         },
-        image: result.images.image_1_1_l,
+        image: result.images.image_full,
         last_updated: result.last_updated,
       });
     };
@@ -130,25 +81,23 @@ registerBlockType("dekode/api-fnugg", {
     if (!attributes.name && isLoading) {
       return <div>Loading...</div>;
     }
-
+    console.log(results);
     return (
       <div className={className}>
         <ResortCard {...attributes} className={className} />
 
-        <DropdownList array={results} className={className} onChange={onSelectResult}/>
+        <DropdownList array={results} className={className} onChange={onSelectResult} />
 
         <RichText
-
+          className={`${className}-editor`}
           onChange={onChangeQuery}
           value={search}
-          placeholder="Search an resort..."
+          placeholder='Search an resort...'
         />
       </div>
     );
   },
 
   // Just dump the rendered card with the selected resort's information to post_content
-  save: ({ attributes, className }) => (
-    <ResortCard {...attributes} className={className} />
-  ),
+  save: ({ attributes, className }) => <ResortCard {...attributes} className={className} />,
 });

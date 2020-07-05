@@ -1,12 +1,4 @@
-.wp-block-dekode-api-fnugg {
-  position: relative;
-}
-
 .wp-block-dekode-api-fnugg-card__title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   margin: 0 !important;
   padding: 1rem;
   border-top-left-radius: 5px;
@@ -15,11 +7,14 @@
   color: #fffefe !important;
 }
 
-.wp-block-dekode-api-fnugg-card__overlay__sub__title {
-  position: absolute;
-  bottom: 46%;
+.wp-block-dekode-api-fnugg-card .wp-block-dekode-api-fnugg-card > img {
   width: 100%;
-  background: rgba(32, 32, 32, 0.5) !important;
+}
+
+.wp-block-dekode-api-fnugg-card__overlay__sub__title {
+  margin: 0 !important;
+  width: 100%;
+  background: #323232;
   text-align: center;
 }
 
@@ -29,7 +24,6 @@
 }
 
 .wp-block-dekode-api-fnugg-card__overlay__sub__title > p {
-  margin: 0 !important;
   color: #fffefe !important;
 }
 
@@ -40,22 +34,16 @@
   gap: 1px 1px;
   grid-template-areas: "cloud degree" "wind description";
   text-align: center;
-  border-bottom: 3px solid #40A3BE;
+  border-bottom: 3px solid #40a3be;
 }
 
 .cloud {
   grid-area: cloud;
-  padding: 2rem 0;
+  padding: 2rem 0 !important;
 }
 
 .cloud > img {
-  object-fit: contain;
-  width: 100px;
-  height: 100px;
-}
-
-.cloud > h5 {
-  margin: 0 !important;
+  height: 100px !important;
 }
 
 .degree {
@@ -63,12 +51,13 @@
 }
 
 .degree > h1 {
+  font-size: 8rem !important;
   color: #ff0000 !important;
 }
 
 .wind {
   grid-area: wind;
-  padding: 2rem 0;
+  margin: 5rem 0 !important;
 }
 
 .wind__row__1 {
@@ -81,6 +70,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .wind__row__1 > img {
@@ -91,7 +81,6 @@
 }
 
 .wind__row__1 > h3 {
-  margin: 0 !important;
   margin-left: 1rem !important;
   font-weight: normal !important;
 }
@@ -101,30 +90,27 @@
   font-weight: normal !important;
 }
 
-.wind > p {
-  margin: 0 !important;
-}
-
 .description {
   grid-area: description;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 1.5rem 0;
+  margin: 4rem 0;
   padding: 1rem 0;
 }
 
 .description > img {
-  width: 50px;
-  height: 50px;
+  width: 4rem !important;
+  height: 4rem !important;
 }
 
 .description > p {
-  margin: 8px !important;
+  margin: 1rem !important;
+  font-size: 1.5rem !important;
 }
 
 #wp-block-dekode-api-fnugg__resort-name {
-  margin: 5rem !important;
+  margin: 2rem !important;
 }
 
 /*# sourceMappingURL=bundle.css.map*/
