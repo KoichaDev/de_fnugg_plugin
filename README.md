@@ -29,7 +29,47 @@ Jeg brukte en allerede ferdig komponent som heter [RichText editor](https://deve
 
 ## Script
 
-Jeg har brukt Webpack og Babel for å sørge at kodene jeg skriver for Gutenberg block kan være i **development** og **production** mode. Jeg har også implementert Babel for å konvertere kodene jeg skriver **jsx** (React), slikt at jeg kan forholde meg til jsx syntaksene. 
+### For å starte prosjektet
+
+For å laste ned alle dependencies/biblioteker for denne test oppgaven
+
+```
+npm install
+```
+
+
+
+Jeg har brukt Webpack, og Babel for å sørge at kodene jeg skriver for Gutenberg block kan være i development, production og minify mode. Minify Mode vil minifier JavaScript, og CSS. Jeg har også implementert Babel for å konvertere kodene jeg skriver til **jsx** (React), slikt at jeg kan forholde meg til jsx syntaksene. 
+
+
+
+**Devtool**
+
+Konfigurasjonen jeg har brukt for webpack til å minify og babel :
+
+- https://webpack.js.org/configuration/devtool/
+
+- https://babeljs.io/docs/en/babel-preset-react
+
+
+
+**Development mode**
+Kun for utviklings miljøet. Når endringer oppstår, så vil editoren sørge for å **watch**. Dette gjør at utvikleren slipper å skrive kommando linje hver gang når endringer skal oppstå. Development mode vil gi en feil melding hvis det er noe galt med kode utviklingen. 
+
+```
+npm start
+```
+
+
+
+**Production mode**
+
+Jeg har brukt [gulp](https://gulpjs.com/docs/en/getting-started/quick-start), og [gulp-zip](https://www.npmjs.com/package/gulp-zip) for å zippe kun de essentsielle filene til plugin. Hensikten er å skille mellom  produksjons klar plugin, og kilde kode til utviklingen.  
+
+```
+npm run build
+```
+
 
 
 

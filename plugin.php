@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Dekode API Fnugg
  * Plugin URI: https://koicha.dev
- * Description: Code test from Dekode
+ * Description: Kode test fra Dekode
  * Author: Khoi Hoang
  * Author URI: https://koicha.dev
  */
@@ -14,7 +14,6 @@ if(!defined('ABSPATH')) {
 }
 
 function de_gutenberg_api_fnugg() {
-
     // Register JavaScript Section
     wp_register_script(
         'gu-block-editor-script', 
