@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --mode=development --watch",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production && gulp bundle"
   },
   "author": "",
   "license": "ISC",
@@ -21,11 +21,14 @@
     "@babel/preset-react": "^7.10.4",
     "@svgr/webpack": "^5.4.0",
     "@wordpress/browserslist-config": "^2.7.0",
+    "@wordpress/scripts": "^12.0.0",
     "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
     "browserslist": "^4.12.2",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
+    "gulp": "^4.0.2",
+    "gulp-zip": "^5.0.2",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
