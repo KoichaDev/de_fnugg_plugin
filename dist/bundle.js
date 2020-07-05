@@ -3216,17 +3216,17 @@ registerBlockType('dekode/api-fnugg', {
         };
       }();
 
-      fetchItem();
       setLoading(true); // Explicitly indicate that we're in the process of querying the API
+
+      fetchItem();
     }, [query]); // Filter the query
 
     var onSelectResult = function onSelectResult(result) {
       var condition = result.conditions.combined.top;
+      var description = result.conditions.condition_description;
       setAttributes({
         name: result.name,
-        condition: _objectSpread(_objectSpread({}, condition), {}, {
-          description: condition.condition_description
-        }),
+        condition: _objectSpread(_objectSpread({}, condition), description),
         image: result.images.image_full,
         last_updated: result.last_updated
       });
@@ -3238,7 +3238,7 @@ registerBlockType('dekode/api-fnugg', {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73,
+          lineNumber: 74,
           columnNumber: 14
         }
       }, "Loading...");
@@ -3250,7 +3250,7 @@ registerBlockType('dekode/api-fnugg', {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77,
+        lineNumber: 78,
         columnNumber: 7
       }
     }, /*#__PURE__*/React.createElement(_Resortcard_component_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, attributes, {
@@ -3258,7 +3258,7 @@ registerBlockType('dekode/api-fnugg', {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 79,
         columnNumber: 9
       }
     })), /*#__PURE__*/React.createElement(_DropdownList_component_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -3268,7 +3268,7 @@ registerBlockType('dekode/api-fnugg', {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80,
+        lineNumber: 81,
         columnNumber: 9
       }
     }), /*#__PURE__*/React.createElement(RichText, {
@@ -3278,7 +3278,7 @@ registerBlockType('dekode/api-fnugg', {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82,
+        lineNumber: 83,
         columnNumber: 9
       }
     }));
@@ -3292,7 +3292,7 @@ registerBlockType('dekode/api-fnugg', {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92,
+        lineNumber: 93,
         columnNumber: 40
       }
     }));

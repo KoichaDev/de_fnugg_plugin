@@ -50,18 +50,19 @@ registerBlockType('dekode/api-fnugg', {
         if (items.length) onSelectResult(items[0]); // Default to selecting the first matching result
       };
 
-      fetchItem();
       setLoading(true); // Explicitly indicate that we're in the process of querying the API
+      fetchItem();
     }, [query]); // Filter the query
 
     const onSelectResult = (result) => {
       const condition = result.conditions.combined.top;
+      const description = result.conditions.condition_description;
 
       setAttributes({
         name: result.name,
         condition: {
           ...condition,
-          description: condition.condition_description,
+          ...description,
         },
         image: result.images.image_full,
         last_updated: result.last_updated,
