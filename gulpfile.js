@@ -7,7 +7,7 @@ function bundle() {
       "**/*", // This will zip everything
       "!node_modules/**",
       "!src/**",
-      "!production zip/**",
+      "!production-ready/**",
       "!gulpfile.js",
       "!package.json",
       "!package-lock.json",
@@ -15,8 +15,8 @@ function bundle() {
       "!.gitignore",
       "!README.md"
     ])
-    .pipe(gulpZip("test-block-plugin.zip"))
-    .pipe(gulp.dest("production zip"));
+    .pipe(gulpZip("dekode.zip"))
+    .pipe(gulp.dest("production-ready"));
 }
 
 exports.bundle = bundle;
