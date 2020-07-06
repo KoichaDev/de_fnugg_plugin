@@ -12,6 +12,7 @@
 }
 
 .wp-block-dekode-api-fnugg-card__overlay__sub__title {
+  padding: 0.5rem;
   margin: 0 !important;
   width: 100%;
   background: #323232;

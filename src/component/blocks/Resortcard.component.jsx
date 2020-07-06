@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ResortCard = ({ className, name, condition, image, last_updated }) => (
-  <section class={`${className}-card`}>
+  <div class={`${className}-card`}>
     <h5 class={`${className}-card__title`}>{name}</h5>
 
     <img src={image} alt={name} />
@@ -33,7 +33,7 @@ const ResortCard = ({ className, name, condition, image, last_updated }) => (
         <p>{condition?.description}</p>
       </div>
     </div>
-  </section>
+  </div>
 );
 
 export default ResortCard;

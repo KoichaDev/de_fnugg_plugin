@@ -55,9 +55,21 @@ registerBlockType('dekode/api-fnugg', {
     }, [query]); // Filter the query
 
     const onSelectResult = (result) => {
+      const date = new Date(result.last_updated);
+
+      // Just be consistent with the variable name, so we can initiaize it on timeUpdated variable to look cleaner
+      const todayDate = ('0' + date.getDate()).slice(-2);
+      const todayMonth = ('0' + date.getMonth()).slice(-2);
+      const todayYear = date.getFullYear();
+      const todayHours = ('0' + date.getHours()).slice(-2);
+      const todayMinutes = ('0' + date.getMinutes()).slice(-2);
+
+      const timeUpdated = `${todayDate}.${todayMonth}.${todayYear} - ${todayHours}:${todayMinutes}`;
+
       const condition = result.conditions.combined.top;
       const description = result.conditions.condition_description;
 
+      console.log(result.last_updated);
       setAttributes({
         name: result.name,
         condition: {
@@ -65,7 +77,7 @@ registerBlockType('dekode/api-fnugg', {
           ...description,
         },
         image: result.images.image_full,
-        last_updated: result.last_updated,
+        last_updated: timeUpdated,
       });
     };
 

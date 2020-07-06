@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DropdownList = ({ array, className, onChange }) => (
-  <section>
+  <div>
     <label htmlFor={`${className}__resort-name`}>Choose a resort</label>
     <select
       id={`${className}__resort-name`}
@@ -15,7 +15,7 @@ const DropdownList = ({ array, className, onChange }) => (
         );
       })}
     </select>
-  </section>
+  </div>
 );
 
 export default DropdownList;
