@@ -69,7 +69,6 @@ registerBlockType('dekode/api-fnugg', {
       const condition = result.conditions.combined.top;
       const description = result.conditions.condition_description;
 
-      console.log(result.last_updated);
       setAttributes({
         name: result.name,
         condition: {
@@ -85,7 +84,6 @@ registerBlockType('dekode/api-fnugg', {
     if (!attributes.name && isLoading) {
       return <div>Loading...</div>;
     }
-    console.log(results);
     return (
       <div className={className}>
         <ResortCard {...attributes} className={className} />
