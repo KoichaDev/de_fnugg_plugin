@@ -1,20 +1,14 @@
 ## :pencil:Introduksjon
 
 Jeg har laget en Gutenberg block der brukeren kan velge en blokk fra editoren. 
-Når brukeren trykker på **Dekode API Fnugg**, så vil det dukkle blokk som tar automatisk en API kall fra https://api.fnugg.no/search?q= 
-
-På Back-end editoren, så ser ikke bruker grensesnittet helt nøyaktig som testen sin screenshot, men når brukeren skal publisere/update, så vil det se mer riktig ut på front-end. 
+Når brukeren trykker på **API Fnugg**, så vil det dukke blokk som tar automatisk en API kall fra https://api.fnugg.no/search?q= 
 
 Jeg sørget for at den første treffen den finner utifra API'en, så skal det presentere informasjonen på blocken på back-end.
-
-
-
 
 
 ## :tada: Implementering
 
 Jeg har prøvd å bruke [***Autocomplete komponent***](https://developer.wordpress.org/block-editor/components/autocomplete/) som er ferdig laget i Wordpress, men etter mange forsøk med googling, og implementering, så fant jeg ut at Autocomplete komponent er ikke 100% brukbar.
-
 
 
 > Unfortunately, this component wasn't really meant to be exported for use in plugins and I highly discourage using this component and see it as experimental. I guess we'll (have to) keep it around in its current form, but at some point I don't expect it to be used by Gutenberg core anymore.
