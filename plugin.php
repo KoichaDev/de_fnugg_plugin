@@ -29,7 +29,7 @@ function de_gutenberg_api_fnugg() {
     );
 
      register_block_type(
-        'dekode/api-fnugg',
+        'koich/api-fnugg',
         array(
             'editor_script' => 'gu-block-editor-script', // This will be JS file that is only going to be enqueued in the admin editor page
             'editor_style'  => 'gu-block-editor-style', // This will be our CSS that is only going to enqueued in the admin editor page

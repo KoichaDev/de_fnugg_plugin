@@ -8,11 +8,11 @@ const { __ } = wp.i18n;
 const { RichText } = wp.editor;
 const { useState, useEffect } = wp.element;
 
-registerBlockType('dekode/api-fnugg', {
-  title: __('Dekode API Fnugg', 'dekode_theme'),
+registerBlockType('koicha/api-fnugg', {
+  title: __('Koicha API Fnugg', 'koicha_plugin'),
   description: __(
     'Based on the response from the API for the selected resort insert a block in the post content that presents the data fields displayed',
-    'dekode_theme'
+    'koicha_api_gutenberg_block_plugin'
   ),
   category: 'layout',
   icon: {
@@ -20,7 +20,7 @@ registerBlockType('dekode/api-fnugg', {
     foreground: '#fff',
     src: 'admin-network',
   },
-  keywords: [__('dekode', 'dekode_theme'), __('fnugg', 'dekode_theme')],
+  keywords: [__('koicha', 'koicha_plugin'), __('fnugg', 'koicha_plugin')],
   attributes: {
     name: {
       type: 'string',
