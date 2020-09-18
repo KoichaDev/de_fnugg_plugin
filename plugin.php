@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin Name: Dekode API Fnugg
+ * Plugin Name: API Fnugg
  * Plugin URI: https://koicha.dev
- * Description: Kode test fra Dekode
+ * Description: Værmelding resort fra API Fnugg https://api.fnugg.no/ 
  * Author: Khoi Hoang
  * Author URI: https://koicha.dev
  */
